@@ -1,4 +1,5 @@
 mod models;
+mod mouse;
 
 use std::sync::Arc;
 use sqlx::postgres::PgPoolOptions;
