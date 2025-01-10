@@ -1,12 +1,17 @@
 mod models;
 mod mouse;
+mod handlers;
+mod error;
 
 use std::sync::Arc;
 use sqlx::postgres::PgPoolOptions;
 
-use axum::{routing::get, Router, ServiceExt};
+use axum::{routing::get, Json, Router, ServiceExt};
 use axum::handler::Handler;
+use axum::routing::post;
 use sqlx::PgPool;
+use crate::handlers::{create_mouse, get_all_mouses};
+
 
 #[tokio::main]
 async fn main() {
@@ -32,7 +37,9 @@ async fn main() {
 
     let app = Router::new()
         .route("/hello", get(hello_axum))
-        .with_state(Arc::new(AppState { db: pool.clone() }));
+        .route("/mouses", get(get_all_mouses))
+        .route("/mouse", post(create_mouse))
+        .with_state(pool);
 
 
     let listener = tokio::net::TcpListener::bind

@@ -10,7 +10,7 @@ pub struct MouseModel{
 }
 
 
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct MouseCreate{
     pub model: String,
     pub brand: String,
