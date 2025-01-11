@@ -3,10 +3,9 @@ mod mouse;
 mod handlers;
 mod error;
 
-use std::sync::Arc;
 use sqlx::postgres::PgPoolOptions;
 
-use axum::{routing::get, Json, Router, ServiceExt};
+use axum::{routing::get, Router, ServiceExt};
 use axum::handler::Handler;
 use axum::routing::post;
 use sqlx::PgPool;

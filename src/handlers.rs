@@ -3,7 +3,7 @@ use axum::http::StatusCode;
 use axum::Json;
 use sqlx::PgPool;
 use crate::models::{MouseCreate, MouseModel};
-use crate::{mouse, AppState};
+use crate::{mouse};
 
 pub async fn get_all_mouses(State(poll): State<PgPool>) -> Result<Json<Vec<MouseModel>>, StatusCode> {
 

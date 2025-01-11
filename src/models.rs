@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Deserialize,Serialize, sqlx::FromRow)]
 pub struct MouseModel{
-    pub id: i64,
+    pub id: i32,
     pub model: String,
     pub brand: String,
     pub price: f64,
